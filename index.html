@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alder Coffee House · Coffee worth slowing down for</title>
+<meta name="description" content="Alder is a small neighbourhood coffee house serving single-origin espresso, fresh bakes and slow brunch.">
+<meta name="theme-color" content="#f2efe8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☕</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:wght@400..600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#17100c;--paper:#f2efe8;--roast:#2b1a12;--cocoa:#8a5a38;--matcha:#c8d8a2;--butter:#f3dc8e;--blush:#efcfc2;--mute:#6f655d;--r:36px;
+--display:"Bricolage Grotesque",system-ui,sans-serif;--serif:"Instrument Serif",Georgia,serif;--body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--ease:cubic-bezier(.2,.7,.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;overflow-x:hidden}
+img,svg,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:8px}
+.wrap{width:min(1240px,100% - 2.5rem);margin-inline:auto}
+section{padding:clamp(4.5rem,10vw,8rem) 0}
+h1,h2,h3,h4{font-family:var(--display);font-weight:600;letter-spacing:-.045em;line-height:.95}
+h2{font-size:clamp(2.8rem,7.5vw,6.4rem)}
+em{font-family:var(--serif);font-weight:400;letter-spacing:-.02em;font-size:1.08em}
+p{max-width:56ch}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* buttons with text-roll */
+.btn{display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 1.7rem;border-radius:999px;border:0;font-weight:600;font-size:.98rem;cursor:pointer;background:#fff;color:var(--ink);transition:transform .5s var(--ease),background .4s}
+.btn.dark{background:var(--ink);color:#fff}.btn.matcha{background:var(--matcha)}
+.btn.ghost{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.btn:hover{transform:translateY(-3px) scale(1.02)}
+.roll{display:block;overflow:hidden;height:1.3em;line-height:1.3}
+.roll>span{display:block;text-shadow:0 1.3em 0 currentColor;transition:transform .55s var(--ease)}
+.btn:hover .roll>span{transform:translateY(-1.3em)}
+
+/* nav */
+header{position:fixed;top:18px;left:0;right:0;z-index:80;padding-top:env(safe-area-inset-top,0px);transition:transform .6s var(--ease)}
+header.hide{transform:translateY(-150%)}
+.nav{position:relative;display:flex;align-items:center;justify-content:space-between;gap:1rem;width:min(860px,100% - 1.5rem);margin-inline:auto;height:58px;padding:0 .5rem 0 1.4rem}
+.nav::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:999px;background:rgba(255,255,255,.82);backdrop-filter:blur(18px) saturate(1.6);-webkit-backdrop-filter:blur(18px) saturate(1.6);box-shadow:0 10px 40px rgba(23,16,12,.16)}
+.logo{font-family:var(--display);font-weight:700;font-size:1.4rem;letter-spacing:-.05em;position:relative;z-index:3;display:flex;align-items:center;gap:.45rem}
+.logo::before{content:"";width:.7em;height:.7em;border-radius:50%;background:var(--ink);box-shadow:.32em 0 0 -.1em var(--matcha)}
+.links{display:flex;gap:.2rem;list-style:none;font-size:.95rem;font-weight:500}
+.links a{display:block;padding:.5rem 1rem;border-radius:999px;transition:background .3s,color .3s}
+.links a:hover{background:rgba(23,16,12,.07)}
+.links a.act{background:var(--ink);color:#fff}
+.nav>.btn{height:42px;padding:0 1.3rem;font-size:.9rem}
+.burger{display:none;background:var(--ink);border:0;width:44px;height:44px;border-radius:50%;cursor:pointer;position:relative;z-index:3}
+.burger span{position:absolute;left:14px;right:14px;height:1.5px;background:#fff;transition:transform .4s var(--ease),top .4s var(--ease),opacity .2s}
+.burger span:nth-child(1){top:17px}.burger span:nth-child(2){top:22px}.burger span:nth-child(3){top:27px}
+.open .burger span:nth-child(1){top:22px;transform:rotate(45deg)}.open .burger span:nth-child(2){opacity:0}.open .burger span:nth-child(3){top:22px;transform:rotate(-45deg)}
+
+/* hero */
+.hero{padding:12px;height:100vh;height:100svh;min-height:640px}
+.hc{position:relative;height:100%;border-radius:var(--r);overflow:hidden;background:#1a0f0a;isolation:isolate;color:#fff;display:flex;align-items:flex-end;padding:clamp(1.4rem,4vw,3.5rem)}
+.hbg{position:absolute;inset:-6%;z-index:-4;background:radial-gradient(55% 70% at 76% 42%,#7d4b29,transparent 70%),radial-gradient(45% 55% at 8% 100%,#3f5f36,transparent 70%),#1a0f0a;animation:drift 14s ease-in-out infinite alternate}
+@keyframes drift{to{transform:scale(1.1) translateX(-2%);filter:hue-rotate(10deg) brightness(1.12)}}
+.hc video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-3;opacity:.62}
+.hc::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(15,9,6,.45),rgba(15,9,6,0) 35%,rgba(15,9,6,.82))}
+.hart{position:absolute;z-index:-2;right:clamp(-3rem,3vw,4rem);top:50%;width:min(44vw,600px);transform:translateY(calc(-50% + var(--py,0px)));filter:drop-shadow(0 40px 60px rgba(0,0,0,.45))}
+.hart svg{animation:spin 90s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hrow{width:100%;display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap}
+.hero h1{font-size:clamp(3.1rem,9.6vw,9.2rem);line-height:.9;letter-spacing:-.055em;font-weight:600}
+.hero h1 .l{display:block;overflow:hidden;padding:.05em 0 .12em}
+.hero h1 .l>span{display:block;transform:translateY(110%) rotate(4deg);transform-origin:left;animation:rise 1.5s var(--ease) forwards}
+.hero h1 .l:nth-child(2)>span{animation-delay:.18s}
+.hero h1 em{font-size:1.12em;color:var(--matcha)}
+@keyframes rise{to{transform:none}}
+.hl{opacity:0;animation:fade 1.2s .9s var(--ease) forwards}
+@keyframes fade{to{opacity:1}}
+.hl p{margin:1.4rem 0;color:rgba(255,255,255,.82);max-width:38ch;font-size:1.1rem}
+.cta{display:flex;gap:.7rem;flex-wrap:wrap}
+.glass{width:min(100%,290px);padding:1.3rem 1.4rem;border-radius:26px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.26);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);opacity:0;animation:fade 1.2s 1.15s var(--ease) forwards;font-size:.95rem;line-height:1.5}
+.glass b{display:flex;align-items:center;gap:.55rem;font-family:var(--display);font-size:1.25rem;letter-spacing:-.03em;margin-bottom:.4rem}
+.live{width:9px;height:9px;border-radius:50%;background:#8fe070;box-shadow:0 0 0 0 rgba(143,224,112,.7);animation:ping 2s infinite}
+@keyframes ping{to{box-shadow:0 0 0 10px rgba(143,224,112,0)}}
+
+/* pills marquee */
+.pills{padding:1.8rem 0 0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.track{display:flex;gap:.8rem;width:max-content;animation:slide 40s linear infinite}
+.pills:hover .track{animation-play-state:paused}
+.track span{padding:.85rem 1.5rem;border-radius:999px;background:#fff;font-weight:600;white-space:nowrap;box-shadow:0 1px 0 rgba(23,16,12,.06)}
+@keyframes slide{to{transform:translateX(calc(-50% - .4rem))}}
+
+/* about */
+.scrub{font-family:var(--display);font-weight:500;font-size:clamp(1.9rem,4.8vw,4.2rem);line-height:1.06;letter-spacing:-.04em;max-width:22em}
+.scrub span{opacity:.14;transition:opacity .15s}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:clamp(3rem,7vw,5rem)}
+.stat{border-radius:30px;padding:1.8rem;min-height:240px;display:flex;flex-direction:column;justify-content:space-between}
+.stat b{font-family:var(--display);font-weight:600;font-size:clamp(4rem,8vw,6.5rem);letter-spacing:-.06em;line-height:.85}
+.stat span{font-weight:500;max-width:16ch;line-height:1.3}
+.rv{opacity:0;transform:translateY(34px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+
+/* menu: sticky stacked cards */
+.mh{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:3rem}
+.mh p{color:var(--mute)}
+.mcard{position:relative;border-radius:var(--r);padding:clamp(1.5rem,4vw,3rem);display:grid;grid-template-columns:.85fr 1.15fr;gap:2rem;margin-bottom:16px;transform-origin:top center}
+.mcard h3{font-size:clamp(3.4rem,8vw,7rem);letter-spacing:-.06em}
+.mcard .l p{margin-top:1rem;opacity:.75;max-width:30ch}
+.mcard .l{display:flex;flex-direction:column;justify-content:space-between;gap:2rem}
+.ill{width:clamp(110px,14vw,170px);margin-top:1rem}
+.steam{animation:steam 3s ease-in-out infinite}
+@keyframes steam{0%{opacity:0;transform:translateY(8px)}50%{opacity:1}100%{opacity:0;transform:translateY(-8px)}}
+.mi{display:flex;justify-content:space-between;gap:1.5rem;align-items:baseline;padding:1.05rem 0;border-bottom:1px solid color-mix(in srgb,currentColor 18%,transparent);transition:padding .4s var(--ease)}
+.mi:hover{padding-left:.7rem}
+.mi h4{font-size:1.5rem;letter-spacing:-.04em;line-height:1.1}
+.mi p{font-size:.92rem;opacity:.68;margin-top:.15rem}
+.mi>span{font-family:var(--display);font-weight:600;font-size:1.3rem;white-space:nowrap}
+.c1{background:var(--roast);color:var(--paper)}.c2{background:var(--butter)}.c3{background:var(--matcha)}
+@media (min-width:901px) and (min-height:720px){.mcard{position:sticky;top:calc(92px + var(--i)*16px);min-height:min(540px,calc(100svh - 130px))}}
+
+/* gallery bento */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(150px,19vw,250px);gap:14px;margin-top:3rem}
+.tile{position:relative;border-radius:30px;overflow:hidden}
+.tile>svg{position:absolute;inset:0;width:100%;height:100%;transition:transform 1.2s var(--ease)}
+.tile:hover>svg{transform:scale(1.07)}
+.cap{position:absolute;left:14px;bottom:14px;padding:.5rem 1rem;border-radius:999px;background:rgba(255,255,255,.92);color:var(--ink);font-size:.85rem;font-weight:600}
+.g1{grid-column:1/3;grid-row:1/3;background:var(--roast)}.g2{grid-column:3;background:var(--cocoa)}.g3{grid-column:4;grid-row:1/3;background:var(--blush)}
+.g4{grid-column:3;background:var(--butter);color:var(--ink)}.g5{grid-column:1/3;background:var(--matcha)}.g6{grid-column:3/5;background:var(--ink)}
+.flow{animation:flow 1.2s linear infinite}@keyframes flow{to{stroke-dashoffset:-14}}
+
+/* contact */
+.cc{border-radius:var(--r);background:var(--matcha);padding:clamp(1.5rem,5vw,4.5rem);display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,6vw,5rem)}
+.cc h2{font-size:clamp(3rem,8vw,7rem)}
+.info{display:grid;gap:1.4rem;margin-top:2.5rem;grid-template-columns:1fr 1fr}
+.info h4{font-size:1.1rem;letter-spacing:-.03em;margin-bottom:.2rem}
+.info p{font-size:.98rem;opacity:.8}.info a:hover{text-decoration:underline}
+form{background:#fff;border-radius:28px;padding:clamp(1.3rem,3vw,2.2rem);display:grid;gap:1rem;align-content:start}
+label{display:grid;gap:.4rem;font-size:.85rem;font-weight:600}
+input,textarea,select{width:100%;background:var(--paper);border:2px solid transparent;border-radius:16px;padding:.95rem 1.1rem;font-size:1rem;font-weight:400;transition:border-color .3s,background .3s}
+input:focus,textarea:focus,select:focus{outline:0;border-color:var(--ink);background:#fff}
+textarea{resize:vertical;min-height:110px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+form .btn{width:100%}
+.status{min-height:1.4rem;font-size:.92rem;font-weight:500}
+
+/* footer */
+footer{margin:12px;border-radius:var(--r);background:var(--ink);color:var(--paper);padding:clamp(2.5rem,6vw,4.5rem) clamp(1.5rem,4vw,3.5rem) 0;overflow:hidden}
+.foot{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2rem}
+.foot p{opacity:.6;margin-top:.6rem;font-size:.95rem}
+.foot h4{font-size:1rem;margin-bottom:.8rem;letter-spacing:-.02em}
+.foot ul{list-style:none;display:grid;gap:.4rem;opacity:.65;font-size:.95rem}
+.foot a:hover{opacity:1;color:var(--matcha)}
+.legal{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:3rem;font-size:.85rem;opacity:.5}
+.mark{font-family:var(--display);font-weight:700;font-size:clamp(7rem,32vw,28rem);letter-spacing:-.08em;line-height:.74;margin:1.5rem 0 -.13em -.04em;white-space:nowrap;background:linear-gradient(180deg,var(--paper) 30%,rgba(242,239,232,.08));-webkit-background-clip:text;background-clip:text;color:transparent;user-select:none}
+
+@media (max-width:900px){
+  .burger{display:block}.nav>.btn{display:none}
+  .links{position:fixed;inset:0;background:var(--paper);flex-direction:column;justify-content:center;align-items:center;gap:.4rem;font-family:var(--display);font-size:3rem;font-weight:600;letter-spacing:-.05em;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s;z-index:2}
+  .links a{padding:.2rem 1.2rem}.open .links{opacity:1;visibility:visible}
+  .hart{width:84vw;right:-22vw;top:34%;opacity:.8}
+  .mcard,.cc{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr}.stat{min-height:170px}
+  .foot{grid-template-columns:1fr 1fr}.foot>div:first-child{grid-column:1/-1}
+}
+@media (max-width:640px){
+  .bento{grid-template-columns:1fr 1fr;grid-auto-rows:150px}
+  .g1{grid-column:1/3;grid-row:span 2}.g2,.g4{grid-column:auto}.g3{grid-column:auto;grid-row:span 2}.g5,.g6{grid-column:1/3}
+  .row,.info{grid-template-columns:1fr}
+  .glass{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}.hero h1 .l>span{transform:none}.hl,.glass,.rv{opacity:1;transform:none}.scrub span{opacity:1}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <radialGradient id="sg"><stop offset=".6" stop-color="#f4efe4"/><stop offset="1" stop-color="#d9d1c2"/></radialGradient>
+    <radialGradient id="cf" cx=".5" cy=".45" r=".6"><stop offset="0" stop-color="#b9824f"/><stop offset=".7" stop-color="#6a4326"/><stop offset="1" stop-color="#40261a"/></radialGradient>
+    <filter id="bl"><feGaussianBlur stdDeviation="14"/></filter>
+  </defs>
+  <symbol id="cup" viewBox="0 0 400 400">
+    <circle cx="200" cy="214" r="172" fill="#000" opacity=".28" filter="url(#bl)"/>
+    <circle cx="190" cy="200" r="175" fill="url(#sg)"/>
+    <path d="M296 168h38q28 0 28 32t-28 32h-38" fill="none" stroke="#faf7f0" stroke-width="22" stroke-linecap="round"/>
+    <circle cx="190" cy="200" r="120" fill="#faf7f0"/>
+    <circle cx="190" cy="200" r="102" fill="url(#cf)"/>
+    <g transform="translate(190 200)"><g fill="#f6e7cf"><ellipse cy="-54" rx="64" ry="13"/><ellipse cy="-36" rx="56" ry="13"/><ellipse cy="-18" rx="48" ry="13"/><ellipse cy="0" rx="39" ry="12"/><ellipse cy="17" rx="28" ry="11"/><ellipse cy="32" rx="16" ry="9"/></g><path d="M0 -72V54" stroke="#6a4326" stroke-width="3" stroke-linecap="round"/></g>
+    <circle cx="190" cy="200" r="102" fill="none" stroke="#fff" stroke-opacity=".3" stroke-width="2"/>
+  </symbol>
+  <symbol id="cr" viewBox="0 0 160 100"><g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 72q6-42 70-50q64 8 70 50q-20-10-36-6q-14-26-34-26t-34 26q-16-4-36 6z"/><path d="M52 42q-8 14-6 28M80 34v34M108 42q8 14 6 28"/></g></symbol>
+</svg>
+
+<header id="top">
+  <div class="nav">
+    <a href="#top" class="logo" aria-label="Alder Coffee House, home">alder</a>
+    <ul class="links" id="links">
+      <li><a href="#about">About</a></li><li><a href="#menu">Menu</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#contact">Contact us</a></li>
+    </ul>
+    <a class="btn dark" href="#contact"><span class="roll"><span>Reserve a table</span></span></a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="links"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding:12px">
+    <div class="hc">
+      <div class="hbg" aria-hidden="true"></div>
+      <!-- Add your own looping clip at assets/hero.mp4 (+ optional hero.webm and hero.jpg poster). The art behind it shows until it loads. -->
+      <video autoplay muted loop playsinline preload="auto" poster="assets/hero.jpg" aria-hidden="true"><source src="C:\Users\ESHA BANERJEE\Downloads\Cafe\gemini_generated_video_e2612795.mp4" type="video/webm"><source src="assets/hero.mp4" type="video/mp4"></video>
+      <div class="hart" aria-hidden="true"><svg viewBox="0 0 400 400"><use href="#cup" width="400" height="400"/></svg></div>
+      <div class="hrow">
+        <div>
+          <h1><span class="l"><span>Coffee worth</span></span><span class="l"><span><em>slowing down</em> for.</span></span></h1>
+          <div class="hl">
+            <p>Single-origin espresso, bakes from our own oven and a window seat with your name on it.</p>
+            <div class="cta"><a class="btn" href="#menu"><span class="roll"><span>See the menu</span></span></a><a class="btn ghost" href="#gallery"><span class="roll"><span>Look inside</span></span></a></div>
+          </div>
+        </div>
+        <div class="glass"><b><i class="live"></i>Open today</b>7am to 6pm<br>14 Alder Lane, Old Town</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="pills" aria-hidden="true"><div class="track" id="track">
+    <span>☕ Single origin</span><span>🥐 Baked at dawn</span><span>🫘 Roasted weekly</span><span>🌱 Oat and almond milk</span><span>🍯 Local honey</span><span>🐕 Dog friendly</span><span>🪴 Window seats</span>
+  </div></div>
+
+  <section id="about">
+    <div class="wrap">
+      <h2 class="sr">About Alder</h2>
+      <p class="scrub" id="scrub">Alder is a small coffee house in a former print shop. We roast every Monday, bake before sunrise and keep the room quiet enough for a real conversation. Come for the espresso, stay for the window seat.</p>
+      <div class="stats">
+        <div class="stat rv" style="background:var(--matcha)"><b data-n="6">0</b><span>partner farms we buy from directly</span></div>
+        <div class="stat rv" style="background:var(--butter);--d:.1s"><b data-n="48">0</b><span>pastries baked fresh every morning</span></div>
+        <div class="stat rv" style="background:var(--blush);--d:.2s"><b data-n="18">0</b><span>hours our cold brew steeps</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu" style="padding-top:0">
+    <div class="wrap">
+      <div class="mh rv"><h2>The menu</h2><p>Made in small batches and sold until it runs out. Oat, almond and whole milk always available.</p></div>
+      <div class="stack">
+        <article class="mcard c1" style="--i:0">
+          <div class="l"><div><h3>Coffee</h3><p>Roasted in house every Monday.</p></div>
+            <svg class="ill" viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M24 54h58v22q0 22-29 22t-29-22z"/><path d="M82 62h8q14 0 14 12t-14 12h-8"/><path d="M14 108h82"/><path class="steam" d="M40 42q-8-8 0-16t0-14"/><path class="steam" d="M62 42q-8-8 0-16t0-14" style="animation-delay:-1.2s"/></g></svg></div>
+          <div>
+            <div class="mi"><div><h4>Espresso</h4><p>House blend, cocoa and red plum.</p></div><span>$3.5</span></div>
+            <div class="mi"><div><h4>Flat white</h4><p>Double ristretto, silky milk.</p></div><span>$4.8</span></div>
+            <div class="mi"><div><h4>Cortado</h4><p>Equal parts espresso and warm milk.</p></div><span>$4.2</span></div>
+            <div class="mi"><div><h4>Pour-over</h4><p>Rotating single origin, brewed to order.</p></div><span>$5.5</span></div>
+            <div class="mi"><div><h4>Cardamom latte</h4><p>House syrup, espresso, steamed milk.</p></div><span>$5.2</span></div>
+            <div class="mi"><div><h4>Cold brew</h4><p>Steeped 18 hours, one large cube.</p></div><span>$4.9</span></div>
+          </div>
+        </article>
+        <article class="mcard c2" style="--i:1">
+          <div class="l"><div><h3>Bakes</h3><p>Out of the oven from 5:30am.</p></div><svg class="ill" viewBox="0 0 160 100" aria-hidden="true"><use href="#cr" width="160" height="100"/></svg></div>
+          <div>
+            <div class="mi"><div><h4>Butter croissant</h4><p>Three-day laminated dough.</p></div><span>$3.8</span></div>
+            <div class="mi"><div><h4>Pistachio bun</h4><p>Soft brioche, pistachio cream, sea salt.</p></div><span>$4.6</span></div>
+            <div class="mi"><div><h4>Olive oil loaf</h4><p>Lemon zest, crisp sugar crust.</p></div><span>$4.2</span></div>
+            <div class="mi"><div><h4>Sourdough toast</h4><p>Cultured butter, wildflower honey.</p></div><span>$5.0</span></div>
+          </div>
+        </article>
+        <article class="mcard c3" style="--i:2;margin-bottom:0">
+          <div class="l"><div><h3>Brunch</h3><p>Served slowly, all day.</p></div>
+            <svg class="ill" viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3"><circle cx="60" cy="60" r="48"/><circle cx="60" cy="60" r="34"/><path d="M40 62q-4-20 18-24q26-2 22 20q-4 16-22 14q-14-2-18-10z"/><circle cx="62" cy="56" r="9" fill="currentColor"/></g></svg></div>
+          <div>
+            <div class="mi"><div><h4>Soft scramble</h4><p>Chives, crème fraîche, sourdough.</p></div><span>$11</span></div>
+            <div class="mi"><div><h4>Avocado on rye</h4><p>Lime, chilli flakes, poached egg.</p></div><span>$12</span></div>
+            <div class="mi"><div><h4>Ricotta pancakes</h4><p>Seasonal fruit and maple.</p></div><span>$13</span></div>
+            <div class="mi"><div><h4>Granola bowl</h4><p>Toasted oats, yoghurt, stone fruit.</p></div><span>$9</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" style="padding-top:clamp(2rem,6vw,5rem)">
+    <div class="wrap">
+      <div class="mh rv" style="margin:0"><h2>Inside Alder</h2><p>A few moments from the counter, the oven and the window seat.</p></div>
+      <!-- For real photos, replace any <svg> inside a tile with: <img src="assets/photo.jpg" alt="..." loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"> -->
+      <div class="bento">
+        <figure class="tile g1"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice"><use href="#cup" width="400" height="400" transform="translate(20 20) scale(.9)"/></svg><figcaption class="cap">The morning pour</figcaption></figure>
+        <figure class="tile g2"><svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice"><defs><pattern id="bn" width="56" height="56" patternUnits="userSpaceOnUse" patternTransform="rotate(18)"><g fill="#3a2418"><ellipse cx="14" cy="14" rx="13" ry="8"/><ellipse cx="42" cy="42" rx="13" ry="8"/></g><g stroke="#8a5a38" fill="none" stroke-width="1.5"><path d="M3 14q11-6 22 0M31 42q11-6 22 0"/></g></pattern></defs><rect width="200" height="200" fill="url(#bn)"/></svg><figcaption class="cap">Single origin</figcaption></figure>
+        <figure class="tile g3"><svg viewBox="0 0 240 400" preserveAspectRatio="xMidYMid slice"><circle cx="170" cy="70" r="30" fill="#f3dc8e"/><g fill="#fff" opacity=".78"><path d="M24 400V190a48 48 0 0 1 96 0v210z"/><path d="M132 400V250a36 36 0 0 1 72 0v150z" opacity=".7"/></g><path d="M72 400V190" stroke="#efcfc2" stroke-width="4"/></svg><figcaption class="cap">Window seat</figcaption></figure>
+        <figure class="tile g4"><svg viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice"><use href="#cr" x="12" y="6" width="136" height="88"/></svg><figcaption class="cap">Fresh from the oven</figcaption></figure>
+        <figure class="tile g5"><svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice"><rect y="128" width="400" height="72" fill="#17100c" opacity=".88"/><g fill="#f2efe8"><rect x="60" y="98" width="36" height="30" rx="10"/><rect x="170" y="98" width="36" height="30" rx="10"/><rect x="280" y="98" width="36" height="30" rx="10"/></g><g fill="#17100c" opacity=".7"><path d="M340 128c-8-30 4-52 20-62c2 26 4 40-4 62z"/><path d="M356 128c10-26 26-38 42-40c-6 22-20 32-42 40z"/></g></svg><figcaption class="cap">The long table</figcaption></figure>
+        <figure class="tile g6"><svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice"><path d="M170 60h60l-14 46h-32z" fill="none" stroke="#c8d8a2" stroke-width="3" stroke-linejoin="round"/><path class="flow" d="M200 0v58" stroke="#c8d8a2" stroke-width="3" stroke-dasharray="7 7"/><path d="M168 126h64v24q0 30-32 30t-32-30z" fill="#c8d8a2"/><path d="M60 40h30M310 150h40M330 60h20" stroke="#f2efe8" stroke-opacity=".25" stroke-width="3" stroke-linecap="round"/></svg><figcaption class="cap">Pour-over, slow</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="cc rv">
+        <div>
+          <h2>Let's get a <em>coffee.</em></h2>
+          <p style="margin-top:1.5rem;opacity:.8">Walk in any day, or send a note for reservations, events and large orders. We reply within a day.</p>
+          <div class="info">
+            <div><h4>Find us</h4><p>14 Alder Lane, Old Town<br>Your City, 400001</p></div>
+            <div><h4>Open daily</h4><p>Mon to Fri, 7am to 6pm<br>Sat and Sun, 8am to 5pm</p></div>
+            <div><h4>Say hi</h4><p><a href="mailto:hello@alder.coffee">hello@alder.coffee</a><br><a href="tel:+10000000000">+1 000 000 0000</a></p></div>
+          </div>
+        </div>
+        <form id="form" novalidate>
+          <div class="row"><label>Name<input name="name" required autocomplete="name" placeholder="Your name"></label><label>Email<input name="email" type="email" required autocomplete="email" placeholder="you@email.com"></label></div>
+          <label>Reason<select name="topic"><option>Table reservation</option><option>Private event</option><option>Catering</option><option>Something else</option></select></label>
+          <label>Message<textarea name="message" required placeholder="Tell us what you have in mind"></textarea></label>
+          <button class="btn dark" type="submit"><span class="roll"><span>Send message</span></span></button>
+          <p class="status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot">
+    <div><a href="#top" class="logo" style="font-size:1.8rem">alder</a><p>Coffee worth slowing down for.</p></div>
+    <div><h4>Explore</h4><ul><li><a href="#about">About</a></li><li><a href="#menu">Menu</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#contact">Contact us</a></li></ul></div>
+    <div><h4>Visit</h4><ul><li>14 Alder Lane</li><li>Old Town</li><li>Open daily</li></ul></div>
+    <div><h4>Follow</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">Facebook</a></li><li><a href="#">Pinterest</a></li></ul></div>
+  </div>
+  <div class="legal"><span>© <span id="yr">2026</span> Alder Coffee House. All rights reserved.</span><span>Made with care, brewed with patience.</span></div>
+  <div class="mark" aria-hidden="true">alder</div>
+</footer>
+
+<script>
+(function(){
+  var $=function(s,c){return(c||document).querySelector(s)},$$=function(s,c){return[].slice.call((c||document).querySelectorAll(s))};
+  var clamp=function(v,a,b){return Math.min(b,Math.max(a,v))},reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var header=$('header'),burger=$('.burger'),hart=$('.hart'),lastY=0,tick=false;
+  $('#yr').textContent=new Date().getFullYear();
+  var track=$('#track');track.innerHTML+=track.innerHTML;
+
+  // word-by-word reveal
+  var sc=$('#scrub'),words=sc.textContent.trim().split(/\s+/);
+  sc.innerHTML=words.map(function(w){return'<span>'+w+'</span>'}).join(' ');
+  var ws=$$('span',sc);
+
+  // sticky stack depth
+  var cards=$$('.mcard'),stackOn=matchMedia('(min-width:901px) and (min-height:720px)');
+
+  function frame(){
+    var y=scrollY,vh=innerHeight;
+    header.classList.toggle('hide',y>lastY&&y>480&&!header.classList.contains('open'));lastY=y;
+    if(!reduce){
+      if(y<vh)hart.style.setProperty('--py',(y*.14)+'px');
+      var r=sc.getBoundingClientRect(),p=clamp((vh*.85-r.top)/(r.height+vh*.4),0,1),lit=p*(ws.length+5);
+      ws.forEach(function(w,i){w.style.opacity=(.14+.86*clamp(lit-i,0,1)).toFixed(2)});
+      cards.forEach(function(c,i){
+        if(!stackOn.matches||i===cards.length-1){c.style.transform='';return}
+        var nt=cards[i+1].getBoundingClientRect().top,start=vh*.9,end=92+(i+1)*16,pr=clamp((start-nt)/(start-end),0,1);
+        c.style.transform='scale('+(1-.05*pr)+')';c.style.filter='brightness('+(1-.18*pr)+')';
+      });
+    }
+    tick=false;
+  }
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});addEventListener('resize',frame);frame();
+
+  // mobile menu
+  function setMenu(o){header.classList.toggle('open',o);burger.setAttribute('aria-expanded',o);burger.setAttribute('aria-label',o?'Close menu':'Open menu');document.body.style.overflow=o?'hidden':''}
+  burger.addEventListener('click',function(){setMenu(!header.classList.contains('open'))});
+  $$('.links a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+  addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false)});
+
+  // active link
+  var links=$$('.links a');
+  if('IntersectionObserver' in window){
+    var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)links.forEach(function(a){a.classList.toggle('act',a.getAttribute('href')==='#'+e.target.id)})})},{rootMargin:'-45% 0px -50% 0px'});
+    links.forEach(function(a){var s=$(a.getAttribute('href'));s&&so.observe(s)});
+  }
+
+  // reveal + count-up
+  function count(el){var n=+el.dataset.n,t0=null;(function step(t){t0=t0||t;var p=Math.min((t-t0)/1500,1);el.textContent=Math.round(n*(1-Math.pow(1-p,4)));if(p<1)requestAnimationFrame(step)})(performance.now())}
+  var rv=$$('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');$$('[data-n]',e.target).concat(e.target.dataset.n?[e.target]:[]).forEach(count);io.unobserve(e.target)}})},{threshold:.2});
+    rv.forEach(function(el){io.observe(el)});
+  }else{rv.forEach(function(el){el.classList.add('in');$$('[data-n]',el).forEach(function(n){n.textContent=n.dataset.n})})}
+
+  // hero video
+  var vid=$('.hc video');
+  if(vid){vid.addEventListener('error',function(){vid.style.display='none'},true);
+    if('IntersectionObserver' in window)new IntersectionObserver(function(e){e[0].isIntersecting?(vid.play&&vid.play().catch(function(){})):vid.pause()}).observe(vid)}
+
+  // contact form (connect Formspree / Netlify Forms / your API to go live)
+  var f=$('#form'),s=$('.status',f);
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!f.name.value.trim()||!/^\S+@\S+\.\S+$/.test(f.email.value)||!f.message.value.trim()){s.style.color='#b3261e';s.textContent='Please add your name, a valid email and a message.';return}
+    s.style.color='#2f6b2f';s.textContent='Thanks, '+f.name.value.trim().split(' ')[0]+'. We will reply within a day.';f.reset();
+  });
+})();
+</script>
+</body>
+</html>
